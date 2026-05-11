@@ -49,12 +49,18 @@ def son_top_pc(x=10):
     return taxminlar
 
 
-
-
-
-
-
-
+def play(x=10):
+    yana=True
+    while yana:
+        taxminlar_user=son_top(x)
+        taxminlar_pc=son_top_pc(x)
+        if taxminlar_user>taxminlar_pc:
+            print('Men yutdim')
+        elif taxminlar_user<taxminlar_pc:
+            print('Siz yutdingiz!')
+        else:
+            print("Durrang!")
+        yana=int(input("YAna oynaysizmi? ha(1) yoq(0)"))
 
 
 
