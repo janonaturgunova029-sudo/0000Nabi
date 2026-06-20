@@ -10,7 +10,7 @@ class Avto:
     """Avtomobil classi"""
     __num_avto=0
     """AVtoga tegishli funksiya"""
-    def __init__(self, make, model, rang, yil, narh, km=0):
+    def __init__(self, make, model, rang, yil, narh,km):
         """Avtomabilning hususiyatlari"""
         self.make=make
         self.model=model
@@ -19,8 +19,14 @@ class Avto:
         self.narh=narh
         self.__km=km ##Kapsulyatsiya yashirin xususiyati tahsqqaridan murojat qilib bolmaydi
         self.__id=uuid4()
-        Avto.num_avto+=1
-        
+        Avto.__num_avto+=1
+      
+    @classmethod
+    def get_num_avto(cls):
+        return cls.__num_avto
+    
+    
+    
     def get_km(self):
         return self.__km     
     
@@ -35,7 +41,9 @@ class Avto:
             print("Moshinani km kamaytirib bolmaydi") #9
 
 
-
+avto1=Avto('Gm','Ferarri','yashil',1999,6000,900)
+avto2=Avto('Toyota','Malibu','sariq',2024,5000, 540)
+avto3=Avto('Samsung','LAsetti', 'Tilla',2003,8000, 600) 
 
 
 
