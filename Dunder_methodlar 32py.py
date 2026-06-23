@@ -29,15 +29,40 @@ class Avto:
         return self.narh==y.narh
     
     def __lt__(self,y):
-        return self.narh<=y.narh
+        return self.narh<y.narh
+    
+    def __lt_(self,y):
+        return self.narh>=y.narh
     
     
+    
+class AvtoSalon:
+    """Avtosalon klassi"""
+    def __init__(self,name):
+        self.name=name
+        self.avtolar=[] #Bu yerda royxatibi olamiz
         
-        
+    def __repr__(self):
+        return f"{self.name} avtosaloni"
+    
+    def add_avto(self,*qiymat):
+        for avto in qiymat:
+            if isinstance(avto,Avto):
+                self.avtolar.append(avto)
+            else:
+                print('Avto kiriting!')
+                
+    def __getitem__(self,index):
+        return self.avtolar[index] #bu usul mashinalar qanchaligini ciqaradi
+    
+    def __setitem__(self,index,qiymat):# bu yerda qiymatni ozgartiradi
+        self.avtolar[index]=qiymat
+                
+salon1=AvtoSalon('GemAvto')
+    
 avto1=Avto("Gm",'Malibu','qora',2003,4000,300)
 avto2=Avto('Hyundai', 'Bmw',' qizil', 2019, 3000, 300)
-print(avto1)
-
+salon1.add_avto(avto1,avto2)
 
 
 
